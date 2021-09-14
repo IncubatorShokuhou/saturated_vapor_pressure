@@ -2,17 +2,17 @@ import math
 
 
 def saturated_vapor_pressure(T: float, surface="water", method="Goff-Grattch") -> float:
-    """[计算饱和蒸气压]
+    """[calculates the saturated vapor pressure]
     See:
         http://cires1.colorado.edu/~voemel/vp.html
 
     Args:
-        T (float): [温度 [K]]
-        surface (str, optional): [表面类型，水面或冰面]. Defaults to "water".
-        method (str, optional): [计算饱和蒸气压的方法]. Defaults to "Goff-Grattch".
+        T (float): [temperature [K]]
+        surface (str, optional): [surface type (water or ice)]. Defaults to "water".
+        method (str, optional): [methods of calculation]. Defaults to "Goff-Grattch".
 
     Returns:
-        float: [饱和蒸气压 [hPa]]
+        float: [saturated vapor pressure [hPa]]
     """
     if surface == "water":
         if (
