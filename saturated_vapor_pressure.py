@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------
-#    VaporPressure
+#    saturated_vapor_pressure
 # -------------------------------------------------------------------------------------------
 # :DESCRIPTION:
 #    Calculate the saturation vapor pressure.
@@ -10,7 +10,7 @@
 #    ```
 #    import random
 #    temperature_C = random.uniform(0, 100) - 100.
-#    P = VaporPressure(temperature_C, phase = "liquid", formula = "WMO")
+#    P = vapor_pressure(temperature_C, phase = "liquid", formula = "WMO")
 #    ```
 
 #    For temperatures above 0 deg C the vapor pressure over liquid water
