@@ -54,7 +54,7 @@ def vapor_pressure_elementwise(
 
     # Calculate saturation pressure over liquid water ----------------------------
 
-    if phase == "Liquid":
+    if phase == "liquid":
         # Default uses Hyland and Wexler over liquid.
         # While this may not be the best formula, it is consistent with what Vaisala uses in their system
 
@@ -537,6 +537,8 @@ def vapor_pressure_elementwise(
                     f"Unknown formula for saturation pressure over ice surface: {formula}"
                 )
 
+    else:
+        raise ValueError("Phase of water must be either `liquid` or `ice`.")
 
 def vapor_pressure(
     temperature_c: np.ndarray, phase: str = "liquid", formula: Optional[str] = None
@@ -555,7 +557,7 @@ def vapor_pressure(
     Returns:
         np.ndarray: [value of calculated saturation vapor pressure [hPa]]
     """
-    if phase == "Liquid":
+    if phase == "liquid":
         if formula == "MartiMauersberger":
             print(
                 "Marti and Mauersberger don't have a vapor pressure curve over liquid. Using Goff Gratch instead"
@@ -575,3 +577,6 @@ def vapor_pressure(
         return np.vectorize(pyfunc=vapor_pressure_elementwise)(
             temperature_c=temperature_c, phase="ice", formula=formula
         )
+
+    else:
+        raise ValueError("Phase of water must be either `liquid` or `ice`.")
