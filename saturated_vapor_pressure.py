@@ -9,8 +9,8 @@
 
 #    ```
 #    import random
-#    temperature_C = random.uniform(0, 100) - 100.
-#    P = vapor_pressure(temperature_C, phase = "liquid", formula = "WMO")
+#    temperature_c = random.uniform(0, 100) - 100.
+#    P = vapor_pressure(temperature_c, phase = "liquid", formula = "WMO")
 #    ```
 
 #    For temperatures above 0 deg C the vapor pressure over liquid water
@@ -50,7 +50,7 @@ def vapor_pressure_elementwise(
     temperature_k: float = temperature_c + 273.15  # Most formulas use T in [K]
     temperature_triple_point: float = 273.16  # triple point in K
 
-    # Formulas using [C] use the variable temperature_C
+    # Formulas using [C] use the variable temperature_c
 
     # Calculate saturation pressure over liquid water ----------------------------
 
@@ -160,7 +160,7 @@ def vapor_pressure_elementwise(
 
         elif formula == "MagnusTetens":
             # Source: Murray, F. W., On the computation of saturation vapor pressure, J. Appl. Meteorol., 6, 203-204, 1967.
-            # p_saturation = 10.**(7.5*(temperature_C)/(temperature_C+237.5) + 0.7858)         ; Murray quotes this as the original formula and
+            # p_saturation = 10.**(7.5*(temperature_c)/(temperature_c+237.5) + 0.7858)         ; Murray quotes this as the original formula and
             return 6.1078 * math.exp(
                 17.269388
                 * (temperature_k - temperature_triple_point)
@@ -451,7 +451,7 @@ def vapor_pressure_elementwise(
 
             elif formula == "MagnusTetens":
                 # Source: Murray, F. W., On the computation of saturation vapor pressure, J. Appl. Meteorol., 6, 203-204, 1967.
-                # p_saturation = 10.**(9.5 * temperature_C/(265.5+temperature_C) + 0.7858)         ; Murray quotes this as the original formula and
+                # p_saturation = 10.**(9.5 * temperature_c/(265.5+temperature_c) + 0.7858)         ; Murray quotes this as the original formula and
                 return 6.1078 * math.exp(
                     21.8745584
                     * (temperature_k - temperature_triple_point)

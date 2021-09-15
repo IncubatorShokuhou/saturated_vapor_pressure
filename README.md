@@ -12,6 +12,6 @@ Calculate the vapor pressure over liquid water using the WMO formula
 import random
 from saturated_vapor_pressure import vapor_pressure
 
-temperature_C = random.uniform(0, 100) - 100.
-P = vapor_pressure(temperature_C, phase = "liquid", formula = "WMO")
+temperature_c = random.uniform(0, 100) - 100.
+P = vapor_pressure(temperature_c, phase = "liquid", formula = "WMO")
 ```
